@@ -1,0 +1,31 @@
+ <% unless notice.nil? || notice == "" %>
+   <p class="alert alert-secondary"><%= notice %></p>
+ <% end %>
+ 
+<h1>List of Products</h1>
+
+<div id="products">
+  <table class="table">
+    <tr scope="col">
+      <th> Product name </th>
+      <th> </th>
+    </tr>
+    <% @products.each do |product| %>
+      <tr>
+        <td> 
+          <%= product["product_name"] %>
+        </td>
+        <td>
+          <%= link_to "Show", product, class:"btn btn-primary" %>
+        </td>
+        <td>
+          <%= button_to "Remove", product, method: :delete, class:"btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<br>
+<span class="h2">Click here to</span>
+<%= link_to "New product", home_index_path, class:"h2", style: "text-decoration: none;" %>

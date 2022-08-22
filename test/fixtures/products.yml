@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  upc_code: MyString
+  product_name: MyString
+  size: MyString
+  brands: MyString
+  categories: MyText
+  ingredients: MyText
+  image_url: MyText
+
+two:
+  upc_code: MyString
+  product_name: MyString
+  size: MyString
+  brands: MyString
+  categories: MyText
+  ingredients: MyText
+  image_url: MyText

@@ -1,0 +1,27 @@
+ <% unless notice.nil? || notice == "" %>
+   <p class="alert alert-secondary"><%= notice %></p>
+ <% end %>
+
+<div>
+  <h1>Detail</h1>
+  <%# Output one by one %>
+  <span style="font-weight:bold">Product Name : </span> <%= @product["product_name"] %>
+  <br>
+  <span style="font-weight:bold">Size : </span> <%= @product["size"] %>
+  <br>
+  <span style="font-weight:bold">Brands : </span> <%= @product["brands"] %>
+  <br>
+  <span style="font-weight:bold">Categories : </span> <%= @product["categories"] %>
+  <br>
+  <span style="font-weight:bold">Ingredients : </span> <%= @product["ingredients"] %>
+  <br>
+  <span style="font-weight:bold">UPC Code : </span> <%= @product["upc_code"] %><span>.json</span>
+  <br>
+  <%= image_tag @product["image_url"] %>
+  <br>
+
+  <br>
+  <span class="h2">Back to</span>
+  <%= link_to "List of products", products_path, class:"h2", style: "text-decoration: none;" %>
+
+</div>

@@ -1,0 +1,17 @@
+ <% unless notice.nil? || notice == "" %>
+   <p class="alert alert-secondary"><%= notice %></p>
+ <% end %>
+
+<p>API : https://world.openfoodfacts.org/api/v0/product/upc_code.json</p>
+
+<%= form_with url: "/products", method: :post do |form| %>
+  <%= form.label :upc_code, "Upc code:" %>
+  <%= form.number_field :upc_code, min: 1 %>
+  <%= form.submit "Submit" %>
+<% end %>
+
+<br>
+<span class="h2">Click here for</span>
+<%= link_to "List of products", products_path, class:"h2", style: "text-decoration: none;" %>
+
+<br>
