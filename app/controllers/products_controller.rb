@@ -21,15 +21,25 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    # get data + insert
-    product_manager = ProductManager.new()
-    @response = product_manager.get_data(params[:upc_code])
+    # check if exist, if yes dont add
+    exist = Product.exists?(upc_code: params[:upc_code])
+    if exist
+      exist = true
+    else 
+      # get data + insert
+      product_manager = ProductManager.new()
+      @response = product_manager.get_data(params[:upc_code])
 
-    puts "== success insert"
+      puts "== success insert"
+    end
+    puts "nawr"
+  
 
     respond_to do |format|
       if params[:upc_code].nil? || params[:upc_code] == ""
         format.html { redirect_to root_path,  notice: "UPC cannot be null" }
+      elsif exist
+        format.html { redirect_to root_path,  notice: "Product already exists" }
       elsif @response["code"] == 1
         # format.html { redirect_to product_url(@product), notice: "Product was successfully created." }
         format.html { redirect_to products_path, notice: "Product was successfully created." }
